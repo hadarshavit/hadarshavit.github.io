@@ -1,19 +1,24 @@
 ---
-title:  "Another title of the publication"
+title:  "Revisiting SATZilla Features in 2024"
 date:   2021-07-12 09:26:00 +00:00
-image: /publications/images/project-image.jpg
-image_onhover: /publications/images/project-image-on-hover.jpg
-author: "John Doe"
-authors: "<strong>John Doe</strong>"
+# image: /publications/images/project-image.jpg
+# image_onhover: /publications/images/project-image-on-hover.jpg
+author: "Hadar Shavit and Holger H. Hoos"
+authors: "<strong>Hadar Shavit</strong>, Holger H. Hoos"
 venue: "Venue"
 bib: |
-  @article{Doe2021,
-    author = {Doe J.},
-    journal = {A journal of imaginary research},
-    title = {Another title of the publication},
-    year = {2021}
+  
+  @inproceedings{ShaHoo24,
+    author = {Shavit, Hadar and Hoos, Holger H.},
+    booktitle = {Proceedings of the 27th International Conference on Theory and Applications of Satisfiability Testing ({SAT})},
+    doi = {10.4230/LIPIcs.SAT.2024.31},
+    pages = {1--10},
+    title = {Revisiting SATZilla Features in 2024},
+    year = {2024},
+    bdsk-url-1 = {https://doi.org/10.4230/LIPIcs.SAT.2024.31}
   }
+
 links:
-  code: https://github.com/vsimkus/academic-jekyll
+  code: https://github.com/hadarshavit/revisiting_satzilla
 ---
-Brief description of another project.
+A new version of the SATzilla feature extraction tool for SAT. Using our new version we achieved better performance for algorithm selection and empirical performance prediction.
