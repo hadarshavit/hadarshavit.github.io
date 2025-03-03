@@ -1,11 +1,11 @@
 ---
 title:  "Revisiting SATZilla Features in 2024"
-date:   2021-07-12 09:26:00 +00:00
+date:   2024-23-08 09:26:00 +00:00
 # image: /publications/images/project-image.jpg
 # image_onhover: /publications/images/project-image-on-hover.jpg
 author: "Hadar Shavit and Holger H. Hoos"
 authors: "<strong>Hadar Shavit</strong>, Holger H. Hoos"
-venue: "Venue"
+venue: "SAT"
 bib: |
   
   @inproceedings{ShaHoo24,
