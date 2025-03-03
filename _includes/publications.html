@@ -11,12 +11,12 @@
 </div>
 {% for post in publication_posts %}
 <div class="row py-2 publication">
-    <div class="col-md-2 col-sm-12 project-thumbnail-parent" align="center">
+    <!-- <div class="col-md-2 col-sm-12 project-thumbnail-parent" align="center">
         <img class="project-thumbnail {% if post.image_onhover %} pre-hover {% endif %}" src="{{site.baseurl}}/tn{{post.image}}" alt="project image" />
         {% if post.image_onhover %}
         <img class="project-thumbnail post-hover" src="{{site.baseurl}}/tn{{post.image_onhover}}" alt="project image" style="display: none;"/>
         {% endif %}
-    </div>
+    </div> -->
     <div class="col-md-10 col-sm-12 project-description">
         <h3>{{post.title}}</h3>
         <br>
@@ -57,7 +57,7 @@
         {% endif %}
         {% if post.links %}
             {% for link in post.links %}
-                {% if need_separator %} / {% endif %}
+                {% if need_separator %}   {% endif %}
                 {% assign need_separator = true %}
                 <a href="{{link[1]}}">{{link[0]}}</a>
             {% endfor %}
