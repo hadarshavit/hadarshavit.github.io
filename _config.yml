@@ -18,12 +18,12 @@ avatar: images/circle_crop.jpg
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: shavit@aim.rwth-aachen.de
   facebook:
   flickr:
-  github:
+  github: hadarshavit
   instagram:
-  linkedin:
+  linkedin: hadarshavit
   pinterest:
   rss: # just type anything here for a working RSS icon
   twitter:
@@ -42,7 +42,7 @@ google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "https://vsimkus.github.io/academic-jekyll/" # the base hostname & protocol for your site
+url: "https://hadarshavit.github.io/" # the base hostname & protocol for your site
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
