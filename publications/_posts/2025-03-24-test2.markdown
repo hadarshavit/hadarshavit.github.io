@@ -17,6 +17,7 @@ bib: |
 
 links:
   code: https://github.com/hadarshavit/asf
+  documentation: https://hadarshavit.github.io/asf/latest/
 ---
 A flexible python algorithm selection framework 
 
