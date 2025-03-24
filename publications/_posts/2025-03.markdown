@@ -1,0 +1,21 @@
+---
+title:  "ASF: Algorithm Selection Framework"
+year:   2024
+# image: /publications/images/project-image.jpg
+# image_onhover: /publications/images/project-image-on-hover.jpg
+author: "Hadar Shavit and Holger H. Hoos"
+authors: "<strong>Hadar Shavit</strong>, Holger H. Hoos"
+venue: "GitHub"
+bib: |
+  
+  @inproceedings{ShaHoo24,
+    author = {Shavit, Hadar and Hoos, Holger H.},
+    booktitle = {GitHub},
+    doi = {10.5281/zenodo.14957286},
+    url = {https://github.com/hadarshavit/asf}
+  }
+
+links:
+  code: https://github.com/hadarshavit/asf
+---
+A flexible python algorithm selection framework 
