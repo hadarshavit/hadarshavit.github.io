@@ -1,0 +1,21 @@
+---
+title:  "Next Generation of Empirical Performance Prediction (AAAI Doctoral Consortium Thesis Summary)"
+year:   2024
+# image: /publications/images/project-image.jpg
+# image_onhover: /publications/images/project-image-on-hover.jpg
+author: "Hadar Shavit"
+authors: "<strong>Hadar Shavit</strong>"
+venue: "AAAI"
+bib: |
+  
+  @inproceedings{Shavit26,
+    author = {Shavit, Hadar},
+    booktitle = {AAAI},
+    title = {Next Generation of Empirical Performance Prediction},
+    year = {2026}
+  }
+
+links:
+  paper: https://hadarshavit.github.io/publications/pdfs/aaai_dc.pdf
+---
+
