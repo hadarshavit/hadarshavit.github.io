@@ -7,16 +7,43 @@
   <!-- The above meta tags must come first -->
 
   <meta name="author" content="{{ site.name }}" />
+  <meta name="description"
+    content="Hadar Shavit - PhD candidate at RWTH Aachen researching AutoAI methods, algorithm configuration and selection, and empirical performance models." />
   <title>{{ site.name }}</title>
 
-  <!-- Bootstrap CSS 4.6.0, never versions fail to load -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ site.name }}" />
+  <meta property="og:description"
+    content="PhD candidate at RWTH Aachen researching AutoAI methods, algorithm configuration and selection." />
+  <meta property="og:url" content="{{ site.url }}" />
+  <meta property="og:image" content="{{ site.url }}/images/portrait.jpg" />
 
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ site.name }}" />
+  <meta name="twitter:description"
+    content="PhD candidate at RWTH Aachen researching AutoAI methods, algorithm configuration and selection." />
+
+  <!-- Bootstrap CSS 4.6.0 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/custom.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
+  <!-- Inline script to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 
 <body class="d-flex flex-column">
@@ -28,11 +55,29 @@
 
   {% include footer.html %}
 
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
   <script src="{{ site.baseurl }}/publication_effects.js" crossorigin="anonymous"></script>
+
+  <!-- Theme toggle script -->
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.add('theme-transition');
+
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      setTimeout(() => html.classList.remove('theme-transition'), 300);
+    }
+  </script>
 </body>
 
 </html>
-

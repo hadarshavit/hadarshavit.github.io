@@ -5,18 +5,13 @@
         <h2>Publications</h2>
         <p></p>
         <p></p>
-        The following is a list of my publications. For a complete list, please see my <a href="https://scholar.google.com/citations?user=ItpuY4kAAAAJ">Google Scholar</a> page.
+        The following is a list of my publications. For a complete list, please see my <a
+            href="https://scholar.google.com/citations?user=ItpuY4kAAAAJ">Google Scholar</a> page.
         <p></p>
     </div>
 </div>
 {% for post in publication_posts %}
 <div class="row py-2 publication">
-    <!-- <div class="col-md-2 col-sm-12 project-thumbnail-parent" align="center">
-        <img class="project-thumbnail {% if post.image_onhover %} pre-hover {% endif %}" src="{{site.baseurl}}/tn{{post.image}}" alt="project image" />
-        {% if post.image_onhover %}
-        <img class="project-thumbnail post-hover" src="{{site.baseurl}}/tn{{post.image_onhover}}" alt="project image" style="display: none;"/>
-        {% endif %}
-    </div> -->
     <div class="col-md-10 col-sm-12 project-description">
         <h3>{{post.title}}</h3>
         <br>
@@ -26,45 +21,88 @@
 
         <em>{{post.venue}}</em>, {{ post.year }}
         <br>
-        {% assign need_separator = false %}
-        {% if post.page_url %}
-        {% assign need_separator = true %}
-        <a href="{{post.page_url}}">url</a>
-        {% endif %}
-        {% if post.bib %}
-        {% if need_separator %} / {% endif %}
-        {% assign need_separator = true %}
-        <a href="" data-toggle="modal" data-target="#publicationBibModal{{forloop.index}}">bib</a>
-        <div class="modal fade" id="publicationBibModal{{forloop.index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog d-md-table" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{post.title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body code text-monospace bib-text">
-                    {{ post.bib | newline_to_br }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary copy-btn">Copy</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+        <div class="pub-links">
+            {% if post.page_url %}
+            <a class="pub-link" href="{{post.page_url}}">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                url
+            </a>
+            {% endif %}
+            {% if post.bib %}
+            <a class="pub-link" href="" data-toggle="modal" data-target="#publicationBibModal{{forloop.index}}">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none"
+                        stroke="currentColor" stroke-width="2" />
+                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" />
+                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" />
+                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" />
+                </svg>
+                bib
+            </a>
+            <div class="modal fade" id="publicationBibModal{{forloop.index}}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog d-md-table" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{post.title}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body code text-monospace bib-text">
+                            {{ post.bib | newline_to_br }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary copy-btn">Copy</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endif %}
-        {% if post.links %}
+            {% endif %}
+            {% if post.links %}
             {% for link in post.links %}
-                {% if need_separator %}   {% endif %}
-                {% assign need_separator = true %}
-                <a href="{{link[1]}}">{{link[0]}}</a>
+            <a class="pub-link" href="{{link[1]}}">
+                {% if link[0] == "paper" %}
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none"
+                        stroke="currentColor" stroke-width="2" />
+                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+                {% elsif link[0] == "code" %}
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="16 18 22 12 16 6" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <polyline points="8 6 2 12 8 18" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {% elsif link[0] == "website" %}
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+                    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                        fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+                {% else %}
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                {% endif %}
+                {{link[0]}}
+            </a>
             {% endfor %}
-        {% endif %}
+            {% endif %}
+        </div>
         <p></p>
-        {{ post.excerpt | replace: '<p', '<p class="text-justify"' }}
+        {{ post.excerpt | replace: '<p', '<p class="text-justify"' }} </div>
     </div>
-</div>
-{% endfor %}
-{% endif %}
+    {% endfor %}
+    {% endif %}

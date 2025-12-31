@@ -1,7 +1,4 @@
----
----
-
-//
+--- --- //
 // IMPORTS
 //
 
@@ -14,18 +11,27 @@
 /**************/
 html {
   font-size: 1em;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color $transition-normal, color $transition-normal;
+  min-height: 100vh;
 }
 
 a {
-  color: #1772d0;
+  color: var(--link-color);
   text-decoration: none;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-display: auto;
+  transition: color $transition-fast;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
+  color: var(--link-hover);
   text-decoration: none;
 }
 
@@ -59,10 +65,11 @@ h2 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 1.75rem;
   font-display: auto;
-  font-weight: normal;
+  font-weight: 600;
   padding: 0px;
   margin: 0px;
-  display:inline; 
+  display: inline;
+  color: var(--text-primary);
 }
 
 h3 {
@@ -72,13 +79,14 @@ h3 {
   font-display: auto;
   padding: 0px;
   margin: 0px;
-  display:inline; 
+  display: inline;
+  color: var(--text-primary);
 }
 
 h1 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 2.5rem;
-  font-weight: normal;
+  font-weight: 700;
   font-display: auto;
   text-align: center;
   padding: 0px;
@@ -86,7 +94,10 @@ h1 {
   margin-block-end: 10px;
   margin-left: 0px;
   margin-right: 0px;
-
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .fade {
@@ -104,7 +115,32 @@ span.highlight {
 #portrait {
   border-radius: 50%;
   width: 100%;
-  max-width: 100%
+  max-width: 100%;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--glass-border);
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// Mobile profile picture scaling
+@media screen and (max-width: 767px) {
+  #portrait {
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .col-md-4 {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 .project-thumbnail-parent {
@@ -112,23 +148,20 @@ span.highlight {
   grid-template-columns: 1fr;
 
   .project-thumbnail {
-    width: auto; 
-    height: auto; 
+    width: auto;
+    height: auto;
     max-width: 100%;
-    
+
     grid-row-start: 1;
     grid-column-start: 1;
 
     &.pre-hover {
-      z-index:2;
-    }
-    &.post-hover {
-      z-index:1;
+      z-index: 2;
     }
 
-    // @include media-breakpoint-down(sm) {
-    //   max-width: 75%;
-    // }
+    &.post-hover {
+      z-index: 1;
+    }
   }
 }
 
@@ -138,31 +171,218 @@ span.highlight {
   padding-left: 1.5rem;
 }
 
-body {
-  min-height: 100vh;
+.modal-dialog {
+  max-width: 850px;
 }
 
-.modal-dialog{
-  max-width: 850px;   
+// Cards with glassmorphism effect
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  .card-body {
+    background: transparent;
+  }
+}
+
+// News list styling
+.news-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 // Publications
-
 .publication {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    margin: 0 -0.5rem;
+    padding: 1.25rem 0.5rem;
+  }
+
   .authors {
+    color: var(--text-secondary);
+
     a {
-      color: #000000;
+      color: var(--text-secondary);
     }
+
     a:focus,
     a:hover {
-      color: #f09228;
+      color: var(--link-hover);
       text-decoration: none;
     }
   }
 }
 
-// Bootstrap-specific
+// Publication link pills
+.pub-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
 
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--pill-bg);
+  color: var(--pill-text) !important;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all $transition-fast;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--pill-hover-bg);
+    color: var(--link-color) !important;
+    border-color: var(--link-color);
+    transform: translateY(-1px);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+}
+
+// Contact links with icons
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--pill-bg);
+  color: var(--pill-text) !important;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all $transition-fast;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--accent-gradient);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+}
+
+// Dark mode toggle
+.theme-toggle {
+  background: var(--pill-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+  margin-left: auto;
+
+  &:hover {
+    background: var(--pill-hover-bg);
+    transform: rotate(15deg);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-primary);
+    transition: fill $transition-fast;
+  }
+
+  .sun-icon {
+    display: none;
+  }
+
+  .moon-icon {
+    display: block;
+  }
+}
+
+[data-theme="dark"] .theme-toggle {
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+}
+
+// Navigation with glassmorphism
+.navbar {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color $transition-normal;
+
+  .nav-link {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: var(--pill-bg);
+      color: var(--link-color) !important;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: var(--border-color);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(100, 100, 120, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+[data-theme="dark"] .navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(200, 200, 220, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+// Bootstrap-specific
 body {
   div.container-fluid {
     max-width: 1000px;
@@ -173,12 +393,73 @@ body {
   font-size: $font-size-small;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-//@import "highlights";
-//@import "svg-icons";
+// Footer
+.page-footer {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+
+  a {
+    color: var(--text-muted);
+
+    &:hover {
+      color: var(--link-hover);
+    }
+  }
+}
+
+// Modal styling for dark mode
+.modal-content {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+
+  .modal-header {
+    border-bottom-color: var(--border-color);
+
+    .modal-title {
+      color: var(--text-primary);
+    }
+
+    .close {
+      color: var(--text-primary);
+    }
+  }
+
+  .modal-body {
+    color: var(--text-primary);
+  }
+
+  .modal-footer {
+    border-top-color: var(--border-color);
+  }
+}
 
 .code {
-  // @extend .text-monospace;
-  background-color: #f8f8f8;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+// Bio section styling
+#bio {
+  p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+// Smooth transitions for theme switching
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0s;
+  transition-timing-function: ease;
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition-duration: 0.3s !important;
 }

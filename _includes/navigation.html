@@ -1,19 +1,41 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" style="z-index:3;">
-    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar sticky-top navbar-expand-md navbar-light" style="z-index:3;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <!-- TODO: Use scroll-spy -->
             {% for item in site.data.navigation %}
             <li class='nav-item {% if page.url == item.link and item.highlight %} active {% endif %}'>
                 <a class="nav-link" href='{{site.baseurl}}{{item.link}}{{item.anchor}}'>
-                    {{ item.name }} {% if page.url == item.link and item.highlight %}<span class="sr-only">(current)</span>{% endif %}
+                    {{ item.name }} {% if page.url == item.link and item.highlight %}<span
+                        class="sr-only">(current)</span>{% endif %}
                 </a>
             </li>
             {% endfor %}
         </ul>
+
+        <!-- Dark mode toggle -->
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+            </svg>
+        </button>
     </div>
 </nav>
