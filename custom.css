@@ -1,47 +1,48 @@
 /* CSS Custom Properties for Dark Mode Support */
 :root {
-    /* Light mode colors */
-    --bg-primary: #fafbfc;
-    --bg-secondary: #f0f2f5;
+    /* Cream & Charcoal - Light mode */
+    --bg-primary: #faf9f7;
+    --bg-secondary: #f5f3f0;
     --bg-card: #ffffff;
-    --text-primary: #1a1a2e;
-    --text-secondary: #4a4a5a;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
     --text-muted: #6b7280;
     --border-color: rgba(0, 0, 0, 0.08);
-    --link-color: #4f46e5;
-    --link-hover: #6366f1;
-    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --nav-bg: rgba(255, 255, 255, 0.8);
-    --pill-bg: rgba(79, 70, 229, 0.1);
-    --pill-text: #4f46e5;
-    --pill-hover-bg: rgba(79, 70, 229, 0.2);
+    --link-color: #374151;
+    --link-hover: #111827;
+    --accent-gradient: linear-gradient(135deg, #374151 0%, #6b7280 100%);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --nav-bg: rgba(250, 249, 247, 0.9);
+    --pill-bg: rgba(0, 0, 0, 0.05);
+    --pill-text: #4b5563;
+    --pill-hover-bg: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-card: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --link-color: #818cf8;
-    --link-hover: #a5b4fc;
-    --accent-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+    /* Cream & Charcoal - Dark mode */
+    --bg-primary: #18181b;
+    --bg-secondary: #27272a;
+    --bg-card: #27272a;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --link-color: #d4d4d8;
+    --link-hover: #fafafa;
+    --accent-gradient: linear-gradient(135deg, #a1a1aa 0%, #d4d4d8 100%);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-    --glass-bg: rgba(30, 41, 59, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --nav-bg: rgba(15, 23, 42, 0.9);
-    --pill-bg: rgba(129, 140, 248, 0.15);
-    --pill-text: #a5b4fc;
-    --pill-hover-bg: rgba(129, 140, 248, 0.25);
+    --glass-bg: rgba(39, 39, 42, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --nav-bg: rgba(24, 24, 27, 0.9);
+    --pill-bg: rgba(255, 255, 255, 0.08);
+    --pill-text: #a1a1aa;
+    --pill-hover-bg: rgba(255, 255, 255, 0.15);
 }
 
 /* BASE RULES */
